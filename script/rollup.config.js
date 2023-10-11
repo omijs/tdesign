@@ -1,36 +1,36 @@
-import url from '@rollup/plugin-url';
-import json from '@rollup/plugin-json';
-import babel from '@rollup/plugin-babel';
-import styles from 'rollup-plugin-styles';
-import esbuild from 'rollup-plugin-esbuild';
-import postcss from 'rollup-plugin-postcss';
-import replace from '@rollup/plugin-replace';
-import analyzer from 'rollup-plugin-analyzer';
-import { terser } from 'rollup-plugin-terser';
-import commonjs from '@rollup/plugin-commonjs';
-import { DEFAULT_EXTENSIONS } from '@babel/core';
-import multiInput from 'rollup-plugin-multi-input';
-import nodeResolve from '@rollup/plugin-node-resolve';
-import staticImport from 'rollup-plugin-static-import';
-import ignoreImport from 'rollup-plugin-ignore-import';
-import copy from 'rollup-plugin-copy';
+import url from '@rollup/plugin-url'
+import json from '@rollup/plugin-json'
+import babel from '@rollup/plugin-babel'
+import styles from 'rollup-plugin-styles'
+import esbuild from 'rollup-plugin-esbuild'
+import postcss from 'rollup-plugin-postcss'
+import replace from '@rollup/plugin-replace'
+import analyzer from 'rollup-plugin-analyzer'
+import { terser } from 'rollup-plugin-terser'
+import commonjs from '@rollup/plugin-commonjs'
+import { DEFAULT_EXTENSIONS } from '@babel/core'
+import multiInput from 'rollup-plugin-multi-input'
+import nodeResolve from '@rollup/plugin-node-resolve'
+import staticImport from 'rollup-plugin-static-import'
+import ignoreImport from 'rollup-plugin-ignore-import'
+import copy from 'rollup-plugin-copy'
 
-import pkg from '../package.json';
+import pkg from '../package.json'
 
-const name = 'tdesign';
+const name = 'tdesign'
 
-const esExternalDeps = Object.keys(pkg.dependencies || {});
-const externalDeps = esExternalDeps.concat([/lodash/, /@babel\/runtime/]);
-const externalPeerDeps = Object.keys(pkg.peerDependencies || {});
+const esExternalDeps = Object.keys(pkg.dependencies || {})
+const externalDeps = esExternalDeps.concat([/lodash/, /@babel\/runtime/])
+const externalPeerDeps = Object.keys(pkg.peerDependencies || {})
 const banner = `/**
  * ${name} v${pkg.version}
  * (c) ${new Date().getFullYear()} ${pkg.author}
  * @license ${pkg.license}
  */
-`;
+`
 
-const input = 'src/index-lib.ts';
-const inputList = ['src/**/*.ts', 'src/**/*.tsx', '!src/**/demos', '!src/**/*.d.ts', '!src/**/__tests__'];
+const input = 'src/index-lib.ts'
+const inputList = ['src/**/*.ts', 'src/**/*.tsx', '!src/**/demos', '!src/**/*.d.ts', '!src/**/__tests__']
 
 const getPlugins = ({
   env,
@@ -60,7 +60,7 @@ const getPlugins = ({
         PKG_VERSION: JSON.stringify(pkg.version),
       },
     }),
-  ];
+  ]
 
   // css
   if (extractOneCss) {
@@ -71,7 +71,7 @@ const getPlugins = ({
         sourceMap: true,
         extensions: ['.sass', '.scss', '.css', '.less'],
       }),
-    );
+    )
   } else if (extractMultiCss) {
     plugins.push(
       staticImport({
@@ -91,19 +91,19 @@ const getPlugins = ({
         ],
         verbose: true,
       }),
-    );
+    )
   } else if (ignoreLess) {
-    plugins.push(ignoreImport({ extensions: ['*.less'] }));
+    plugins.push(ignoreImport({ extensions: ['*.less'] }))
   } else {
     plugins.push(
       staticImport({
-        include: ['src/**/style/index.js', 'src/_common/style/web/**/*.less'],
+        include: ['src/**/style/index.ts', 'src/_common/style/web/**/*.less'],
       }),
       ignoreImport({
         include: ['src/*/style/*'],
-        body: 'import "./style/index.js";',
+        body: 'import "./style/index.ts";',
       }),
-    );
+    )
   }
 
   if (env) {
@@ -114,7 +114,7 @@ const getPlugins = ({
           'process.env.NODE_ENV': JSON.stringify(env),
         },
       }),
-    );
+    )
   }
 
   if (isProd) {
@@ -126,26 +126,26 @@ const getPlugins = ({
           /* eslint-enable */
         },
       }),
-    );
+    )
   }
 
-  return plugins;
-};
+  return plugins
+}
 
 /** @type {import('rollup').RollupOptions} */
 const cssConfig = {
-  input: ['src/**/style/index.js'],
+  input: ['src/**/style/index.ts'],
   plugins: [multiInput(), styles({ mode: 'extract' })],
   output: {
     banner,
     dir: 'es/',
     assetFileNames: '[name].css',
   },
-};
+}
 
 // lodash会使ssr无法运行,@babel\runtime affix组件报错,tinycolor2 颜色组件报错,dayjs 日期组件报错
-const exception = ['tinycolor2', 'dayjs'];
-const esExternal = esExternalDeps.concat(externalPeerDeps).filter((value) => !exception.includes(value));
+const exception = ['tinycolor2', 'dayjs']
+const esExternal = esExternalDeps.concat(externalPeerDeps).filter((value) => !exception.includes(value))
 const esConfig = {
   input: inputList.concat('!src/index-lib.ts'),
   // 为了保留 style/css.js
@@ -160,7 +160,7 @@ const esConfig = {
     entryFileNames: '[name].mjs',
     chunkFileNames: '_chunks/dep-[hash].mjs',
   },
-};
+}
 
 /** @type {import('rollup').RollupOptions} */
 const esmConfig = {
@@ -176,7 +176,7 @@ const esmConfig = {
     sourcemap: true,
     chunkFileNames: '_chunks/dep-[hash].js',
   },
-};
+}
 
 /** @type {import('rollup').RollupOptions} */
 const libConfig = {
@@ -190,7 +190,7 @@ const libConfig = {
     sourcemap: true,
     chunkFileNames: '_chunks/dep-[hash].js',
   },
-};
+}
 
 /** @type {import('rollup').RollupOptions} */
 const cjsConfig = {
@@ -205,7 +205,7 @@ const cjsConfig = {
     exports: 'named',
     chunkFileNames: '_chunks/dep-[hash].js',
   },
-};
+}
 
 /** @type {import('rollup').RollupOptions} */
 const umdConfig = {
@@ -229,7 +229,7 @@ const umdConfig = {
     sourcemap: true,
     file: `dist/${name}.js`,
   },
-};
+}
 
 /** @type {import('rollup').RollupOptions} */
 const umdMinConfig = {
@@ -249,7 +249,7 @@ const umdMinConfig = {
     sourcemap: true,
     file: `dist/${name}.min.js`,
   },
-};
+}
 
 // 单独导出 reset.css 到 dist 目录，兼容旧版本样式
 const resetCss = {
@@ -258,6 +258,6 @@ const resetCss = {
     file: 'dist/reset.css',
   },
   plugins: [postcss({ extract: true })],
-};
+}
 
-export default [cssConfig, esConfig, esmConfig, libConfig, cjsConfig, umdConfig, umdMinConfig, resetCss];
+export default [cssConfig, esConfig, esmConfig, libConfig, cjsConfig, umdConfig, umdMinConfig, resetCss]
