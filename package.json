@@ -180,7 +180,7 @@
     "cli-color": "^2.0.3",
     "clipboard": "^2.0.11",
     "cross-env": "^7.0.3",
-    "cypress": "^12.17.2",
+    "cypress": "^13.3.0",
     "cz-git": "^1.7.0",
     "czg": "^1.7.0",
     "dom-parser": "^0.1.6",
