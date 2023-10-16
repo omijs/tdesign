@@ -143,11 +143,11 @@ export default class BackTop extends WeElement<BackTopProps> {
     //   containerNode = this.parentNode.children[0].shadowRoot.children[1]
     // }
 
-    let buttonNode = this.button.current
+    let buttonNode = this.button.current as HTMLElement
     // buttonNode.style.position = 'absolute'
     if (this.props.offset) {
-      buttonNode.style.right = this.props.offset[0]
-      buttonNode.style.bottom = this.props.offset[1]
+      buttonNode.style.right = this.props.offset[0] as string
+      buttonNode.style.bottom = this.props.offset[1] as string
     }
 
     let duration = this.props.duration
@@ -203,9 +203,9 @@ export default class BackTop extends WeElement<BackTopProps> {
     if (scrollContainer === document) {
       offsetTop = Math.abs(scrollContainer.documentElement.scrollTop)
     } else {
-      offsetTop = Math.abs((scrollContainer as HTMLElement).scrollTop)
+      offsetTop = Math.abs(scrollContainer.scrollTop)
     }
-    return offsetTop >= this.props.visibleHeight
+    return offsetTop >= Number(this.props.visibleHeight)
   }
 
   cls() {

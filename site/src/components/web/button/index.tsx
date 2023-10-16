@@ -1,5 +1,4 @@
 import { define, OmiProps, h, render, createRef, WeElement } from 'omi'
-import { SizeEnum } from '@src/common'
 import './base-checkbox'
 import './color-checkbox'
 import './variant-checkbox'
@@ -53,7 +52,7 @@ define(
     ghost: boolean = false
     theme
     variant
-    size: SizeEnum
+    size: string
     shape
 
     static defaultProps = {

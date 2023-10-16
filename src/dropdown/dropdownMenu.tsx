@@ -4,18 +4,19 @@ import css from './style/index'
 import './dropdownItem'
 import { TdClassNamePrefix } from '../utils'
 import { throttle } from 'lodash'
+import { StyledProps } from '../common'
 import '../icon/chevron-right'
 import '../icon/chevron-left'
 import '../divider'
 
 type DropDownMenuProps = {
-  options: TdDropdownProps['options']
-  maxHeight: TdDropdownProps['maxHeight']
-  minColumnWidth: TdDropdownProps['minColumnWidth']
-  maxColumnWidth: TdDropdownProps['maxColumnWidth']
-  direction: TdDropdownProps['direction']
-  onClick: TdDropdownItemProps['onClick']
-}
+  options?: TdDropdownProps['options']
+  maxHeight?: TdDropdownProps['maxHeight']
+  minColumnWidth?: TdDropdownProps['minColumnWidth']
+  maxColumnWidth?: TdDropdownProps['maxColumnWidth']
+  direction?: TdDropdownProps['direction']
+  onClick?: TdDropdownItemProps['onClick']
+} & StyledProps & { css?: string }
 @tag('t-dropdown-menu')
 export default class DropdownMenu extends WeElement<DropDownMenuProps> {
   static css = css as string

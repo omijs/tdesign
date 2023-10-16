@@ -2,16 +2,16 @@ import { h, tag, WeElement } from 'omi'
 
 import '../index'
 import css from '../style/index'
-import common from './common.css'
+import common from '../style/common.css'
 import '../../space/index'
 @tag('grid-responsive')
 export default class GridResponsive extends WeElement {
-  static css = css as string
+  static css = (css + common) as string
   render() {
     return (
-      <t-space direction="vertical" style={{ width: '100%' }} css={css + common}>
+      <>
         <span>宽度响应式</span>
-        <t-row css={common}>
+        <t-row>
           <t-col xs={2} sm={4} md={6} lg={8} xl={10}>
             <div>Col</div>
           </t-col>
@@ -21,7 +21,7 @@ export default class GridResponsive extends WeElement {
         </t-row>
 
         <span>其他属性响应式（支持span，offset，order，pull，push）</span>
-        <t-row css={common}>
+        <t-row>
           <t-col
             xs={{ offset: 0, span: 3 }}
             sm={{ offset: 2, span: 3 }}
@@ -32,7 +32,7 @@ export default class GridResponsive extends WeElement {
             <div>Col</div>
           </t-col>
         </t-row>
-      </t-space>
+      </>
     )
   }
 }

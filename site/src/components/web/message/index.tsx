@@ -28,7 +28,7 @@ onDurationEnd |	Function ||	TS 类型：() => void 计时结束后触发 | 	N
 
 const list: any = []
 let flag: number = 0
-let messageClose = document.querySelector('body > message-close').shadowRoot.querySelector('t-message')
+let messageClose = document.querySelector('body > message-close').shadowRoot.querySelector('t-message') as HTMLElement
 let messageAll = document.querySelector('body > message-close-all').shadowRoot.querySelector('t-space')
 let body = document.querySelector('body')
 

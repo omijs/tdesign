@@ -1,8 +1,6 @@
-import { h, WeElement, tag, classNames, OmiProps, createRef } from 'omi'
+import { h, WeElement, tag, OmiProps } from 'omi'
 import { RadioProps } from './type'
 import css from './style'
-import { TdClassNamePefix } from '../utils'
-import {} from '../common'
 
 @tag('t-radio')
 export default class Radio extends WeElement<RadioProps> {

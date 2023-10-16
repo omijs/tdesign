@@ -2,7 +2,7 @@ import { h, tag, WeElement } from 'omi'
 
 import '../index'
 import css from '../style/index'
-import common from './common.css'
+import common from '../style/common.css'
 import '../../space/index'
 @tag('grid-valign')
 export default class GridValign extends WeElement {

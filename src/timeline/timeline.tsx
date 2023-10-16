@@ -51,7 +51,8 @@ export default class Timeline extends WeElement<TimelineProps> {
     }
   }
   updateItemsStatus = () => {
-    this.timelineItems = toArray(this.props.children).filter(
+    const tempProps = this.props as any
+    this.timelineItems = toArray(tempProps.children).filter(
       (child: JSX.Element) => child.nodeName === 't-timeline-item',
     )
     this.itemsStatus = this.timelineItems.map((child: JSX.Element) => child.attributes?.dotColor || 'primary')

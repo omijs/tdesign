@@ -30,7 +30,14 @@ const banner = `/**
 `
 
 const input = 'src/index-lib.ts'
-const inputList = ['src/**/*.ts', 'src/**/*.tsx', '!src/**/demos', '!src/**/*.d.ts', '!src/**/__tests__']
+const inputList = [
+  'src/**/*.ts',
+  'src/**/*.tsx',
+  '!src/**/_example',
+  '!src/**/demos',
+  '!src/**/*.d.ts',
+  '!src/**/__tests__',
+]
 
 const getPlugins = ({
   env,
@@ -64,6 +71,7 @@ const getPlugins = ({
 
   // css
   if (extractOneCss) {
+    console.log('==========================extractOneCss')
     plugins.push(
       postcss({
         extract: `${isProd ? `${name}.min` : name}.css`,
@@ -73,36 +81,51 @@ const getPlugins = ({
       }),
     )
   } else if (extractMultiCss) {
+    console.log('==========================extractMultiCss')
     plugins.push(
+      postcss({
+        extract: `${isProd ? `${name}.min` : name}.css`,
+        minimize: isProd,
+        sourceMap: true,
+        extensions: ['.sass', '.scss', '.css', '.less'],
+      }),
       staticImport({
-        include: ['src/**/style/css.mjs'],
+        include: ['src/**/style/css.js', 'src/**/style/*.less'],
       }),
-      ignoreImport({
-        include: ['src/*/style/*'],
-        body: 'import "./style/css.mjs";',
-      }),
-      copy({
-        targets: [
-          {
-            src: 'src/**/style/css.js',
-            dest: 'es',
-            rename: (name, extension, fullPath) => `${fullPath.substring(4, fullPath.length - 6)}${name}.mjs`,
-          },
-        ],
-        verbose: true,
-      }),
+      // ignoreImport({
+      //   include: ['src/*/style/*'],
+      //   body: 'import "./css.js";',
+      // }),
+      // copy({
+      //   targets: [
+      //     {
+      //       src: 'src/**/style/css.js',
+      //       dest: 'es',
+      //       rename: (name, extension, fullPath) => `${fullPath.substring(4, fullPath.length - 6)}${name}.mjs`,
+      //     },
+      //   ],
+      //   verbose: true,
+      // }),
     )
   } else if (ignoreLess) {
+    console.log('==========================ignoreLess')
     plugins.push(ignoreImport({ extensions: ['*.less'] }))
   } else {
+    console.log('==========================else')
     plugins.push(
+      postcss({
+        extract: `${isProd ? `${name}.min` : name}.css`,
+        minimize: isProd,
+        sourceMap: true,
+        extensions: ['.sass', '.scss', '.css', '.less'],
+      }),
       staticImport({
-        include: ['src/**/style/index.ts', 'src/_common/style/web/**/*.less'],
+        include: ['src/**/style/index.ts', 'src/_common/style/web/**/*.less', 'src/**/style/*.less'],
       }),
-      ignoreImport({
-        include: ['src/*/style/*'],
-        body: 'import "./style/index.ts";',
-      }),
+      // ignoreImport({
+      //   include: ['src/*/style/*'],
+      //   body: 'import "./style/index.ts";',
+      // }),
     )
   }
 

@@ -109,7 +109,8 @@ export default class Button extends WeElement<ButtonProps> {
     } = props
 
     const tagName = renderTag()
-    const renderChildren = content ?? children.length > 0 ? children : null
+    const tempChildren = children as any
+    const renderChildren = content ?? tempChildren.length > 0 ? children : null
     if (icon) {
       icon.attributes['css'] = generateSubCss()
     }

@@ -2,18 +2,15 @@ import { OmiProps, WeElement, h, tag, classNames, createRef } from 'omi'
 import style from './style'
 import { TagInputChangeContext, TagInputValue, TdTagInputProps } from './type'
 // import { TdTagInputProps } from './type'
-import { TdClassNamePrefix } from '../utils'
+import { TdClassNamePrefix, noop } from '../utils'
 import { StyledProps } from '../common'
 import useTagList from './useTagList'
 // import useDragSorter from '../utils/userDragSorter';
 import '../input'
 import '../tag'
 import TInput, { InputValue, InputRef } from '../input'
-import noop from '../utils/noop'
 import '../icon/close'
-import { clearScreenDown } from 'readline'
 import '../icon/close-circle-filled'
-import { takeRightWhile } from 'lodash'
 
 const TagInputClassNamePrefix = (className: string) => TdClassNamePrefix('tag-input') + className
 

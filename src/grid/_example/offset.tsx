@@ -2,7 +2,7 @@ import { h, tag, WeElement } from 'omi'
 
 import '../index'
 import css from '../style/index'
-import common from './common.css'
+import common from '../style/common.css'
 @tag('grid-offset')
 export default class GridOffset extends WeElement {
   static css = (css + common) as string

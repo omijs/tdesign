@@ -7,9 +7,12 @@ import { PopupVisibleChangeContext } from '../popup'
 import '../popup'
 import './dropdownMenu'
 import './dropdownItem'
+import { StyledProps } from '../common'
+
+export interface DropdownProps extends TdDropdownProps, StyledProps {}
 
 @tag('t-dropdown')
-export default class Dropdown extends WeElement<TdDropdownProps> {
+export default class Dropdown extends WeElement<DropdownProps> {
   static css = css as string
 
   dropdownClass = TdClassNamePrefix('dropdown')
@@ -41,11 +44,11 @@ export default class Dropdown extends WeElement<TdDropdownProps> {
 
   options: DropdownOption[] = []
 
-  getOptionsFromChildren = (children: WeElement): DropdownOption[] => {
+  getOptionsFromChildren = (children: WeElement | any): DropdownOption[] => {
     if (!children) return []
 
     if (children.nodeName === 't-dropdown-menu') {
-      const groupChildren = children.children as WeElement
+      const groupChildren = children.children
       if (Array.isArray(groupChildren)) {
         return this.getOptionsFromChildren(groupChildren)
       }
@@ -54,8 +57,8 @@ export default class Dropdown extends WeElement<TdDropdownProps> {
     return toArray(children)
       .map((item: WeElement) => {
         const groupChildren = item.children
-        delete item.attributes.ignoreAttrs
-        const contextRes = item.attributes.content
+        delete item.attributes['ignoreAttrs']
+        const contextRes = item.attributes['content']
 
         if (Array.isArray(groupChildren)) {
           const contentCtx = groupChildren?.filter?.(
@@ -103,9 +106,10 @@ export default class Dropdown extends WeElement<TdDropdownProps> {
   }
 
   beforeUpdate() {
-    this.options = this.generateDropdownOptions(this.props.children, this.props.options)
+    const tempProps = this.props as any
+    this.options = this.generateDropdownOptions(tempProps.children, this.props.options)
   }
-  render(props: OmiProps<TdDropdownProps>) {
+  render(props: OmiProps<DropdownProps>) {
     const renderContent = (
       <t-dropdown-menu css={props.css} {...props} options={this.options} onClick={this.handleMenuClick} />
     )

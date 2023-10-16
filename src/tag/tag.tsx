@@ -3,7 +3,7 @@ import style from './style'
 import { TagProps } from './type'
 import { TdClassNamePrefix, noop } from '../utils'
 import '../icon/close'
-import ListItem from '@src/list/list-item'
+import ListItem from '../list/list-item'
 import { setThemePrimary } from '@omiu/common'
 const TagClassNamePrefix = (className: string) => TdClassNamePrefix('tag') + className
 
@@ -95,12 +95,12 @@ export default class Tag extends WeElement<TagProps> {
   }
 
   render(props: OmiProps<TagProps, any>, store: any) {
-    const { disabled, maxWidth, icon, children, content, closable, onClick, style } = props
+    const { disabled, maxWidth, icon, children, content, closable, onClick } = props
 
     // (() => console.log(icon.attributes))()
     if (icon) {
       icon.attributes['style'] = {}
-      icon.attributes.style['marginRight'] = 4
+      icon.attributes['style']['marginRight'] = 4
     }
 
     return (

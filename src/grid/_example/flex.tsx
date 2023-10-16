@@ -2,7 +2,7 @@ import { h, tag, WeElement } from 'omi'
 
 import '../index'
 import css from '../style/index'
-import common from './common.css'
+import common from '../style/common.css'
 @tag('grid-flex')
 export default class GridFlex extends WeElement {
   static css = (css + common) as string

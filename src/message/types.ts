@@ -1,8 +1,8 @@
 /* eslint-disable */
 
-import { TNode, TElement, SizeEnum } from '@src/common';
+import { TNode, TElement, SizeEnum } from '../common'
 
-export type MessageThemeList =  "info" | "success" | "warning" | "error" | 'question' | 'loading'
+export type MessageThemeList = 'info' | 'success' | 'warning' | 'error' | 'question' | 'loading'
 
 export type MessageProps = {
   className?: string

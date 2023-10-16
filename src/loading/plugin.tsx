@@ -1,14 +1,14 @@
 import { h, render } from 'omi'
 import Loading from './loading'
-import { LoadingInstance, LoadingProps } from './type'
+import { LoadingInstance, TdLoadingProps } from './type'
 
-function createContainer(attach?: LoadingProps['attach']) {
+function createContainer(attach?: TdLoadingProps['attach']) {
   if (typeof attach === 'string') return document.querySelector(attach)
   if (typeof attach === 'function') return attach()
   return document.body
 }
 
-export type LoadingPluginMethod = (options: boolean | LoadingProps) => LoadingInstance
+export type LoadingPluginMethod = (options: boolean | TdLoadingProps) => LoadingInstance
 
 // loading plugin形式
 export const LoadingPlugin: LoadingPluginMethod = (options) => {
@@ -22,7 +22,7 @@ export const LoadingPlugin: LoadingPluginMethod = (options) => {
 
   const defaultProps = {
     loading: true,
-    attach: null as LoadingProps['attach'],
+    attach: null as TdLoadingProps['attach'],
     fullscreen: !attach,
     showOverlay: !!attach,
   }

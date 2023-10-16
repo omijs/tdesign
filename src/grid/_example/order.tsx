@@ -2,7 +2,7 @@ import { h, tag, WeElement } from 'omi'
 
 import '../index'
 import css from '../style/index'
-import common from './common.css'
+import common from '../style/common.css'
 @tag('grid-order')
 export default class GridOrder extends WeElement {
   static css = (css + common) as string

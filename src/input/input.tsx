@@ -1,17 +1,17 @@
-import { h, OmiProps, tag, WeElement, render, classNames, createRef, extend, get, set } from 'omi'
-import { TdInputProps } from './type'
+import { h, OmiProps, tag, WeElement, classNames, createRef } from 'omi'
+import { TdInputProps, InputValue } from './type'
 import style from './style'
-import { TdClassNamePrefix, parseTNode } from '../../src/utils'
-import noop from '../utils/noop'
+import { TdClassNamePrefix, parseTNode } from '../utils'
 import { StyledProps, TNode, TElement } from '../common'
 import useLengthLimit from './useLengthLimit'
 import '../icon/close-circle-filled'
-import { create } from 'lodash'
 const InputClassNamePrefix = (name: string) => TdClassNamePrefix('input') + name
 
 export interface InputProps extends TdInputProps, StyledProps {
   showInput?: boolean // 控制透传readonly同时是否展示input 默认保留 因为正常Input需要撑开宽度
   keepWrapperWidth?: boolean // 控制透传autoWidth之后是否容器宽度也自适应 多选等组件需要用到自适应但也需要保留宽度
+  onMyKeydown?: (value: InputValue, context: { e: KeyboardEvent }) => void
+  onMyKeyup?: (value: InputValue, context: { e: KeyboardEvent }) => void
 }
 
 export interface InputRef {
@@ -40,7 +40,7 @@ export default class Input extends WeElement<InputProps> {
     -webkit-animation: t-fade-in .2s ease-in-out;
     animation: t-fade-in .2s ease-in-out;
     margin: 3px var(--td-comp-margin-xs) 3px 0;
-    } 
+    }
     .t-tag-input t-tag[size="small"]::part(my-part) {
       margin: 1px var(--td-comp-margin-xs) 1px 0;
     }
@@ -95,13 +95,13 @@ export default class Input extends WeElement<InputProps> {
     value: String,
   }
 
-  inputRef = createRef()
-  inputPreRef = createRef()
+  inputRef = createRef<HTMLElement>()
+  inputPreRef = createRef<HTMLElement>()
   wrapperRef = createRef()
   composingRef = createRef()
   value
   composingValue = ''
-  status = ''
+  status: TdInputProps['status'] = 'default'
   renderType = ''
   isFocused = false
   isHover = false
@@ -139,8 +139,9 @@ export default class Input extends WeElement<InputProps> {
       if (that.composingRef.current) {
         return
       } else {
-        that.value = e.currentTarget.value
-        const { limitNumber, getValueByLimitNumber, tStatus, onValidateChange } = useLengthLimit({
+        const target = e.currentTarget as any
+        that.value = target.value
+        const { getValueByLimitNumber, onValidateChange } = useLengthLimit({
           value: that.value === undefined ? undefined : String(that.value),
           status: that.status,
           maxlength: that.props.maxlength,
@@ -148,7 +149,7 @@ export default class Input extends WeElement<InputProps> {
           allowInputOverMax: that.props.allowInputOverMax,
           onValidate: that.props.onValidate,
         })
-        const limitedValue = getValueByLimitNumber(e.currentTarget.value)
+        const limitedValue = getValueByLimitNumber(target.value)
         that.value = limitedValue
         that.composingValue = limitedValue
         that.props.onChange?.(limitedValue)
@@ -165,7 +166,7 @@ export default class Input extends WeElement<InputProps> {
     })
   }
 
-  render(props: InputProps, store: any) {
+  render(props: OmiProps<InputProps>, store: any) {
     let that = this
     const {
       type,
@@ -174,7 +175,7 @@ export default class Input extends WeElement<InputProps> {
       disabled,
       status,
       size,
-      className,
+      class: className,
       inputClass,
       style,
       prefixIcon,
@@ -231,7 +232,7 @@ export default class Input extends WeElement<InputProps> {
     if (isShowClearIcon) {
       suffixIconNew = (
         <t-icon-close-circle-filled class={classNames(InputClassNamePrefix(`__suffix-clear`))} onClick={handleClear} />
-      )
+      ) as any
     }
 
     const suffixIconContent = renderIcon('t', 'suffix', parseTNode(suffixIconNew))
@@ -344,8 +345,7 @@ export default class Input extends WeElement<InputProps> {
     }
 
     function handleClear(e: MouseEvent) {
-      let inputNode = e.currentTarget.parentNode.previousSibling
-      inputNode.value = ''
+      let inputNode = (e.currentTarget as HTMLInputElement).parentNode.previousSibling as HTMLElement
       that.composingValue = ''
       that.value = ''
       onChange?.('', { e })
@@ -354,66 +354,51 @@ export default class Input extends WeElement<InputProps> {
     }
 
     function handleKeyDown(e: KeyboardEvent) {
-      const {
-        key,
-        currentTarget: { value },
-      } = e
+      const { key, currentTarget }: { key: string; currentTarget: any } = e
       that.value = ''
-      key === 'Enter' && onEnter?.(value, { e })
+      key === 'Enter' && onEnter?.(currentTarget.value, { e })
       console.log('ui', e)
-      props.onMyKeydown?.(value, { e })
+      props.onMyKeydown?.(currentTarget.value, { e })
     }
 
     function handleKeyUp(e: KeyboardEvent) {
-      const {
-        currentTarget: { value },
-      } = e
-      props.onMyKeyup?.(value, { e })
+      const { currentTarget }: { currentTarget: any } = e
+      props.onMyKeyup?.(currentTarget.value, { e })
     }
 
     function handleFocus(e: FocusEvent) {
       if (readonly) return
-      const {
-        currentTarget: { value },
-      } = e
-      onFocus?.(value, { e })
+      const { currentTarget }: { currentTarget: any } = e
+      onFocus?.(currentTarget.value, { e })
       that.isFocused = true
       that.update()
     }
 
     function handleKeyPress(e: KeyboardEvent) {
-      const {
-        currentTarget: { value },
-      } = e
-      onKeypress?.(value, { e })
+      const { currentTarget }: { currentTarget: any } = e
+      onKeypress?.(currentTarget.value, { e })
     }
 
     function handleCompositionStart(e: CompositionEvent) {
       that.composingRef.current = true
-      const {
-        currentTarget: { value },
-      } = e
-      onCompositionstart?.(value, { e })
+      const { currentTarget }: { currentTarget: any } = e
+      onCompositionstart?.(currentTarget.value, { e })
     }
 
     function handleCompositionEnd(e: CompositionEvent) {
-      const {
-        currentTarget: { value },
-      } = e
+      const { currentTarget }: { currentTarget: any } = e
       if (that.composingRef.current) {
         that.composingRef.current = false
         // onValidateChange()
         handleChange(e)
       }
-      onCompositionend?.(value, { e })
+      onCompositionend?.(currentTarget.value, { e })
     }
 
     function handleBlur(e: FocusEvent) {
       if (readonly) return
-      const {
-        currentTarget: { value },
-      } = e
-      onBlur?.(value, { e })
+      const { currentTarget }: { currentTarget: any } = e
+      onBlur?.(currentTarget.value, { e })
       that.isFocused = false
       that.update()
     }

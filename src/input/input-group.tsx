@@ -1,19 +1,14 @@
-import { h, OmiProps, tag, WeElement, render, classNames, createRef,  extend, get, set} from 'omi'
+import { h, OmiProps, tag, WeElement, classNames, createRef } from 'omi'
 import { TdClassNamePrefix } from '../../src/utils'
 import inputSyle from './style'
 import { TdInputGroupProps } from './type'
-import { toArray } from 'lodash'
-import parseTNode from '../utils/parseTNode';
 
 const InputClassNamePrefix = (name: string) => TdClassNamePrefix('input') + name
 
-export interface InputGroupProps extends TdInputGroupProps {
-
-}
+export interface InputGroupProps extends TdInputGroupProps {}
 
 @tag('t-input-group')
-export default class InputGruop extends WeElement<InputGroupProps>{
-
+export default class InputGruop extends WeElement<InputGroupProps> {
   static addStyle = `.t-input-group--separate t-input{
     margin-left: var(--td-comp-margin-xxxl);
   }`
@@ -24,15 +19,13 @@ export default class InputGruop extends WeElement<InputGroupProps>{
     console.log(this.props)
   }
 
-  render(props: InputGroupProps, store: any) {
-    const { separate,children, ...wrapperProps } = props;
+  render(props: OmiProps<InputGroupProps>, store: any) {
+    const { separate, children, ...wrapperProps } = props
     // const addStyle = `
-    
+
     // t-input{
     //   margin-left: var(--td-comp-margin-xxxl) !important;
     // }`;
-
-
 
     // (()=>{
     //   for(let i = 1; i < children.length; i++){
@@ -46,7 +39,7 @@ export default class InputGruop extends WeElement<InputGroupProps>{
     // function renderChildren() {
     //   return props.children.map((item, index) => {
     //     if(index>=1 && props.children[index-1].nodeName == props.children[index].nodeName){
-          
+
     //       // if (!item.attributes.css) {
     //       //   item.attributes.css = ''
     //       // }
@@ -67,12 +60,10 @@ export default class InputGruop extends WeElement<InputGroupProps>{
       <div
         ref={this.divRef}
         // style={{overflow:'hidden'}}
-        style={{width:'100%'}}
-        class={classNames(InputClassNamePrefix(`-group`),
-        {
-          [InputClassNamePrefix('-group--separate')] : !!separate
-        }
-        )}
+        style={{ width: '100%' }}
+        class={classNames(InputClassNamePrefix(`-group`), {
+          [InputClassNamePrefix('-group--separate')]: !!separate,
+        })}
         {...wrapperProps}
       >
         {children}

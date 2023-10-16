@@ -2,13 +2,14 @@ import { h, tag, WeElement, OmiProps, classNames, createRef, getHost } from 'omi
 import { TdDropdownItemProps, TdDropdownProps, DropdownOption } from './type'
 import css from './style/index'
 import { TdClassNamePrefix, pxCompat } from '../utils'
+import { StyledProps } from '../common'
 type DropdownItemProps = TdDropdownItemProps & {
   value: DropdownOption['value']
   maxColumnWidth: TdDropdownProps['maxColumnWidth']
   minColumnWidth: TdDropdownProps['minColumnWidth']
   isSubmenu: Boolean
   onClick: (value: DropdownOption['value'], e: any) => void
-}
+} & StyledProps
 @tag('t-dropdown-item')
 export default class DropdownItem extends WeElement<DropdownItemProps> {
   static css = css as string

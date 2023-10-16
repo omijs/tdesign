@@ -34,7 +34,7 @@ export default class ListItem extends WeElement<ListItemProps> {
 
     return (
       <>
-        <li class={classNames(TdClassNamePrefix('list-item'))} onClick={this.handleCilck}>
+        <li class={classNames(TdClassNamePrefix('list-item'))} onClick={this.handleClick}>
           <div class={classNames(TdClassNamePrefix('list-item-main'))}>
             {children}
             {action && actionElement}

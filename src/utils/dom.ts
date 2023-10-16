@@ -80,8 +80,11 @@ export function getAttach(attach: AttachNode, triggerNode?: HTMLElement): Attach
   if (typeof attach === 'function') {
     el = attach(triggerNode)
   }
-  if (typeof attach === 'object' && attach instanceof window.HTMLElement) {
-    el = attach
+  if (typeof attach === 'object') {
+    attach = attach as any
+    if (attach instanceof window.HTMLElement) {
+      el = attach
+    }
   }
 
   // fix el in iframe

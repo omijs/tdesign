@@ -1,13 +1,12 @@
 import { OmiProps, WeElement, h, tag, classNames, createRef } from 'omi'
 import style from './style'
-import { TextareaProps } from './type'
-import { TdClassNamePrefix } from '../utils'
+import { TdTextareaProps } from './type'
+import { StyledProps } from '../common'
+import { TdClassNamePrefix, noop } from '../utils'
 import calcTextareaHeight from '../_common/js/utils/calcTextareaHeight'
-import noop from '../utils/noop'
-import { valueToNode } from '@babel/types'
-import { getCharacterLength, getUnicodeLength, limitUnicodeMaxLength } from '../_common/js/utils/helper'
+import { getCharacterLength, limitUnicodeMaxLength } from '../_common/js/utils/helper'
 
-import { auto } from '@popperjs/core'
+export interface TextareaProps extends TdTextareaProps, StyledProps {}
 const TextareaClassNamePrefix = (className: string) => TdClassNamePrefix('textarea__') + className
 
 @tag('t-textarea')
@@ -143,7 +142,7 @@ export default class Textarea extends WeElement<TextareaProps> {
     return text.length + chineseCharacters.length
   }
   //textarea ref
-  textArea = createRef()
+  textArea = createRef<any>()
 
   getTextareaStatus(status: string) {
     return TdClassNamePrefix(`is-${status || ''}`)
@@ -258,9 +257,9 @@ export default class Textarea extends WeElement<TextareaProps> {
               this.inputValueChangeHandle(e)
             }}
             // onFocus={(e) => { this.onfocus(e) }}
-            onKeyPress={(e) => onKeypress(e.currentTarget.value, { e })}
-            onKeyDown={(e) => onKeydown(e.currentTarget.value, { e })}
-            onKeyUp={(e) => onKeyup(e.currentTarget.value, { e })}
+            onKeyPress={(e) => onKeypress((e.currentTarget as HTMLInputElement).value, { e })}
+            onKeyDown={(e) => onKeydown((e.currentTarget as HTMLInputElement).value, { e })}
+            onKeyUp={(e) => onKeyup((e.currentTarget as HTMLInputElement).value, { e })}
             ref={this.textArea}
           ></textarea>
           {tips && <div class={classNames(TextareaClassNamePrefix('tips'), this.getTipsStyle(status))}>{tips}</div>}

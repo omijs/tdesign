@@ -1,8 +1,8 @@
 /* eslint-disable */
 
-import { TNode, TElement, SizeEnum } from '@src/common';
+import { TNode, TElement, SizeEnum } from '../common'
 
-export type NotificationThemeList =  'info' | 'success' | 'warning' | 'error'
+export type NotificationThemeList = 'info' | 'success' | 'warning' | 'error'
 
 export type NotificationProps = {
   className?: String

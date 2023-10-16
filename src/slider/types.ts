@@ -1,4 +1,4 @@
-import { TNode } from '@src/common'
+import { TNode } from '../common'
 
 export type SliderProps = {
   className: string

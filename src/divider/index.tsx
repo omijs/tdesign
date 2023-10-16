@@ -1,6 +1,6 @@
 import _Divider from './divider'
 
-export type { DividerProps } from './type'
+export type { DividerProps } from './divider'
 export * from './type'
 
 export const Divider = _Divider

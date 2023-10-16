@@ -25,9 +25,12 @@ onCloseBtnClick |	Function |	 | 	TS 类型：(context: { e: MouseEvent }) => voi
 onDurationEnd |	Function |	 | 	TS 类型：() => void时结束时触发	| N
 `)
 
+interface Props {
+  tab: string
+}
 define(
   'page-notification',
-  class extends WeElement {
+  class extends WeElement<Props> {
     static defaultProps = {
       tab: 'demo',
     }

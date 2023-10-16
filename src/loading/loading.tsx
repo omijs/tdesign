@@ -108,7 +108,7 @@ export default class Loading extends WeElement<LoadingProps> {
     let renderIndicator = <t-loading-gradient />
 
     if (indicator && typeof indicator !== 'boolean') {
-      renderIndicator = indicator as JSX.Element
+      renderIndicator = indicator as any
     }
     return (
       <>
@@ -154,8 +154,8 @@ export default class Loading extends WeElement<LoadingProps> {
         </div>
       ) : null
     }
-
-    if (content || children.length > 0) {
+    const tempChildren = children as any
+    if (content || tempChildren.length > 0) {
       return (
         <div class={relativeClass}>
           {content || children}

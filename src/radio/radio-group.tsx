@@ -2,7 +2,7 @@ import { h, WeElement, tag, classNames, OmiProps, createRef } from 'omi'
 import { RadioGroupProps, RadioProps } from './type'
 import Radio from './radio'
 import css from './style'
-import { TdClassNamePefix } from '../utils'
+import { TdClassNamePrefix } from '../utils'
 
 @tag('t-radio-group')
 export default class RadioGroup extends WeElement<RadioGroupProps> {
@@ -78,6 +78,6 @@ export default class RadioGroup extends WeElement<RadioGroupProps> {
       xl: String,
       block: String,
     }
-    const radioGroupClass = classNames(TdClassNamePefix('radio-group'))
+    const radioGroupClass = classNames(TdClassNamePrefix('radio-group'))
   }
 }

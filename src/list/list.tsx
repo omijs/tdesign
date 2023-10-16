@@ -63,7 +63,8 @@ export default class BackTop extends WeElement<ListProps> {
 
   install() {
     let that = this
-    this.childrenlist = this.props.children
+    const tempProps = this.props as any
+    this.childrenlist = tempProps.children
     if (this.props.stripe) {
       this.childrenlist.map((item, index) => {
         if ((index + 1) % 2 == 0) {
@@ -166,7 +167,7 @@ export default class BackTop extends WeElement<ListProps> {
           <ul class={classNames(ListClassNamePrefix('inner'))}>
             {this.childrenlist && <div>{this.childrenlist}</div>}
           </ul>
-          {asyncLoading && this.renderLoadElement(asyncLoading)}
+          {asyncLoading && this.renderLoadElement(asyncLoading as string)}
           {footer && this.renderFooter(footer)}
         </div>
       </>

@@ -110,9 +110,9 @@ export default class Card extends WeElement<CardProps> {
     const avatarClass = classNames({
       [`${componentName}__avatar`]: avatar,
     })
-
+    const tempChildren = props.children as any
     const bodyClass = classNames({
-      [`${componentName}__body`]: children.length > 0,
+      [`${componentName}__body`]: tempChildren.length > 0,
     })
 
     const descriptionClass = classNames({

@@ -5,8 +5,8 @@ import '../../button'
 import '../../popup'
 @tag('tooltip-duration')
 export default class TooltipDuration extends WeElement {
-  timerRef = createRef()
-  ref = createRef()
+  timerRef = createRef<any>()
+  ref = createRef<any>()
   reset = true
   count = 5
   countRef = createRef<number>()

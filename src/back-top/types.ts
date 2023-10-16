@@ -1,8 +1,6 @@
 /* eslint-disable */
 
-import { TNode, TElement, SizeEnum } from '@src/common';
-
-import { AttachNodeReturnValue } from '../common'
+import { AttachNodeReturnValue, TNode, TElement, SizeEnum } from '../common'
 
 export interface IconProps {
   class?: String
@@ -11,25 +9,23 @@ export interface IconProps {
   onClick?: (event: MouseEvent) => void
 }
 
-
 export type BackTopProps = {
+  container?: string | Function
+  content?: string | Function
+  default?: string | Function
+  target?: string | Function
 
-  container?:string | Function
-  content?:string | Function
-  default?:string | Function
-  target?:string | Function
-  
-  duration?:number
+  duration?: number
   offset?: Array<string | number>
   visibleHeight?: string | number
 
-  shape?:string
-  size?:string
+  shape?: string
+  size?: string
   theme?: string
 
   onClick?: Function
 }
 
 export type UseScrollProps = {
-  target: AttachNodeReturnValue;
-};
+  target: AttachNodeReturnValue
+}

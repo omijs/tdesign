@@ -42,7 +42,7 @@ export default class Tooltip extends WeElement<TooltipProps> {
 
   componentName = TdClassNamePrefix('tooltip')
   timeUp = false
-  popupRef = createRef()
+  popupRef = createRef<any>()
   ref = createRef()
   timerRef = createRef<number>()
   popupVisible = false

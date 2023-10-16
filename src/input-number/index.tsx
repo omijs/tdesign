@@ -1,6 +1,6 @@
 import { h, OmiProps, tag, WeElement, render, classNames } from 'omi'
 import { InputProps } from './types'
-import styles from './sytle'
+import styles from './style'
 import { TdClassNamePrefix } from '../../src/utils'
 
 import '../input'
