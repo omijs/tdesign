@@ -6,7 +6,6 @@ import { StyledProps } from '../common'
 import { TdClassNamePrefix } from '../utils'
 import '../loading'
 import { getAlign } from './getAlign'
-import timelineItemCss from './style/timeline-item.less'
 
 export interface TimelineProps extends TdTimelineProps, StyledProps {}
 
@@ -100,7 +99,6 @@ export default class Timeline extends WeElement<TimelineProps> {
             }),
             status: itemsStatus[index],
             ...itemProps,
-            css: timelineItemCss,
           }),
         )}
       </ul>

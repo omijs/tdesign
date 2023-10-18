@@ -5,6 +5,7 @@ import { StyledProps } from '../common'
 import { TdClassNamePrefix, parseTNode } from '../utils'
 import { isObject } from 'lodash'
 import { getAlign } from './getAlign'
+import timelineItemCss from './style/timeline-item.less'
 import '../loading'
 
 const DefaultTheme = ['default', 'primary', 'success', 'warning', 'error']
@@ -21,7 +22,7 @@ export interface TimelineItemProps extends TdTimelineItemProps, StyledProps, Sub
 
 @tag('t-timeline-item')
 export default class TimelineItem extends WeElement<TimelineItemProps> {
-  static css = css as string
+  static css = (css + timelineItemCss) as string
   static defaultProps = { dotColor: 'primary' }
   static propTypes = {
     children: Object,
@@ -57,7 +58,6 @@ export default class TimelineItem extends WeElement<TimelineItemProps> {
       mode,
     } = props
 
-    console.log('item props: ', props)
     const renderAlign = getAlign(globalAlign, layout)
 
     // 计算节点模式 CSS 类名
@@ -78,11 +78,11 @@ export default class TimelineItem extends WeElement<TimelineItemProps> {
       return ''
     }
 
-    const ele = parseTNode(dot)
+    const ele = parseTNode(dot) as WeElement
     let dotElement = undefined
     if (isObject(ele)) {
-      dotElement = cloneElement(ele, {
-        class: classNames(ele?.attributes?.class, `${componentName}__dot-content`),
+      dotElement = cloneElement(ele as any, {
+        class: classNames(ele?.attributes?.['class'], `${componentName}__dot-content`),
       })
     }
 
