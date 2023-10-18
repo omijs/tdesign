@@ -137,9 +137,9 @@ export default class extends WeElement {
             spline={this.mdSegment.spline}
             component-name={this.data.pageName}
           ></td-doc-header>
-          <div>
-            <this.data.tagName></this.data.tagName>
-          </div>
+         
+          <this.data.tagName></this.data.tagName>
+        
 
           <div style="margin-top: 48px">
             <td-doc-history time={this.lastUpdated}></td-doc-history>
