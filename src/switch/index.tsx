@@ -1,6 +1,6 @@
 import _Switch from './switch'
 
-import './style/index.ts'
+import './style/index'
 
 export type { SwitchProps } from './switch'
 export * from './type'

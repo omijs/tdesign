@@ -1,7 +1,7 @@
 import _Row from './row'
 import _Col from './col'
 
-import './style/index.ts'
+import './style/index'
 export * from './type'
 
 export const Row = _Row

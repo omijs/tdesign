@@ -1,7 +1,7 @@
 import _Input from './input'
 import _InputGroup from './input-group'
 
-import './style/index.ts'
+import './style/index'
 
 
 export type { InputProps, InputRef } from './input'
