@@ -163,3 +163,7 @@ render(
 
 const app = document.getElementById('my-app')
 registerRouting(app)
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelector('#my-app').shadowRoot.children[0].shadowRoot.children[0].querySelector('slot').assignedNodes()[0].shadowRoot.children[0].querySelector('.TDesign-header-nav__git').setAttribute('href', 'https://github.com/Tencent/omi')
+})
