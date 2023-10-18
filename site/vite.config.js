@@ -25,7 +25,7 @@ export default ({ mode }) => {
       },
     },
     build: {
-      outDir: '../_site',
+      outDir: '../tdesign',
       chunkSizeWarningLimit: 10000
     },
     esbuild: {
