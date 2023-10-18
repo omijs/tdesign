@@ -11,7 +11,6 @@ import 'tdesign-icons-omi/user'
 import 'tdesign-icons-omi/chat'
 import 'tdesign-icons-omi/share'
 import 'tdesign-icons-omi/thumb-up'
-import gridCss from '../../grid/style'
 
 @tag('card-footer')
 export default class CardFooter extends WeElement {
@@ -27,7 +26,6 @@ export default class CardFooter extends WeElement {
             <t-icon-user></t-icon-user>
           </t-avatar>
         }
-        css={gridCss}
         footer={
           <t-row align="middle" justify="center">
             <t-col flex="auto" align="middle">

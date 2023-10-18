@@ -1,7 +1,6 @@
 import { h, tag, WeElement } from 'omi'
 
 import '../index'
-import gridCss from '../../grid/style'
 import '../../avatar'
 import '../../grid'
 import '../../button'
@@ -39,7 +38,6 @@ export default class CardFootActions extends WeElement {
           theme="poster2"
           cover="https://tdesign.gtimg.com/site/source/card-demo.png"
           style={{ width: '400px' }}
-          css={gridCss}
           footer={
             <t-row align="middle" justify="center">
               <t-col flex="auto" align="middle">
@@ -67,7 +65,6 @@ export default class CardFootActions extends WeElement {
           theme="poster2"
           cover="https://tdesign.gtimg.com/site/source/card-demo.png"
           style={{ width: '400px' }}
-          css={gridCss}
           actions={
             <t-col flex="auto" align="middle">
               <t-dropdown options={this.options} onClick={this.clickHandler}>
@@ -95,7 +92,6 @@ export default class CardFootActions extends WeElement {
           theme="poster2"
           cover="https://tdesign.gtimg.com/site/source/card-demo.png"
           style={{ width: '400px' }}
-          css={gridCss}
           actions={
             <t-col flex="auto" align="middle">
               <t-dropdown options={this.options} onClick={this.clickHandler}>

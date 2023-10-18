@@ -1,6 +1,7 @@
 import { h, tag, WeElement, OmiProps, classNames, createRef } from 'omi'
 import { TdCardProps } from './type'
 import css from './style/index'
+import gridCss from '../grid/style'
 import { commonClass } from '../../src/common'
 import { TdClassNamePrefix } from '../utils'
 import '../../src/loading'
@@ -9,7 +10,7 @@ import { StyledProps } from '../common'
 export interface CardProps extends TdCardProps, StyledProps {}
 @tag('t-card')
 export default class Card extends WeElement<CardProps> {
-  static css = css as string
+  static css = (css + gridCss) as string
 
   static defaultProps = {
     bordered: true,
