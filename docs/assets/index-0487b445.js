@@ -1,2 +1,0 @@
-var t=Object.defineProperty;var a=(r,e,o)=>e in r?t(r,e,{enumerable:!0,configurable:!0,writable:!0,value:o}):r[e]=o;var p=(r,e,o)=>(a(r,typeof e!="symbol"?e+"":e,o),o);import{$ as l,H as i,d as s}from"./index-3f1c186f.js";const n=`.demo-wrapper{margin:20px auto;padding:40px;border:1px solid rgb(231,231,231);border-top-left-radius:5px;border-top-right-radius:5px;overflow-x:auto}
-`;var d;l("demo-wrapper",(d=class extends i{render(r){return s(s.f,null,s("div",{class:"demo-wrapper",style:r.style},s("slot",null)))}},p(d,"css",n),d));
