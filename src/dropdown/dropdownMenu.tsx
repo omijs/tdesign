@@ -5,8 +5,8 @@ import './dropdownItem'
 import { TdClassNamePrefix } from '../utils'
 import { throttle } from 'lodash'
 import { StyledProps } from '../common'
-import '../icon/chevron-right'
-import '../icon/chevron-left'
+import 'tdesign-icons-omi/chevron-right'
+import 'tdesign-icons-omi/chevron-left'
 import '../divider'
 
 type DropDownMenuProps = {

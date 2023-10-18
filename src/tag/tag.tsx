@@ -2,7 +2,7 @@ import { OmiProps, WeElement, h, tag, classNames, createRef } from 'omi'
 import style from './style'
 import { TagProps } from './type'
 import { TdClassNamePrefix, noop } from '../utils'
-import '../icon/close'
+import 'tdesign-icons-omi/close'
 import ListItem from '../list/list-item'
 import { setThemePrimary } from '@omiu/common'
 const TagClassNamePrefix = (className: string) => TdClassNamePrefix('tag') + className

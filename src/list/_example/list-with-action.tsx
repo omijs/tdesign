@@ -5,8 +5,8 @@ import '../list-item'
 import '../list'
 import '../../link/link'
 import '../../space/space'
-import '../../icon/edit'
-import '../../icon/download'
+import 'tdesign-icons-omi/edit'
+import 'tdesign-icons-omi/download'
 
 @tag('list-with-action')
 export default class ListWithAction extends WeElement {

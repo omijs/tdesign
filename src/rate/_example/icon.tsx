@@ -2,9 +2,9 @@ import { h, tag, WeElement } from 'omi'
 
 import '../index'
 import '../../space/index'
-import '../../icon/star'
-import '../../icon/logo-github'
-import '../../icon/heart-filled'
+import 'tdesign-icons-omi/star'
+import 'tdesign-icons-omi/logo-github'
+import 'tdesign-icons-omi/heart-filled'
 
 @tag('rate-icon')
 export default class RateIcon extends WeElement {

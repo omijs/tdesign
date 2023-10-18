@@ -2,7 +2,7 @@ import { h, tag, WeElement } from 'omi'
 
 import '../index'
 import '../../space'
-import '../../icon/user'
+import 'tdesign-icons-omi/user'
 import '../avatar-group'
 
 @tag('avatar-group-cascading')

@@ -8,12 +8,12 @@ import '../../button'
 import '../../divider'
 import '../../dropdown'
 import '../../space'
-import '../../icon/user'
-import '../../icon/chat'
-import '../../icon/share'
-import '../../icon/thumb-up'
-import '../../icon/heart'
-import '../../icon/more'
+import 'tdesign-icons-omi/user'
+import 'tdesign-icons-omi/chat'
+import 'tdesign-icons-omi/share'
+import 'tdesign-icons-omi/thumb-up'
+import 'tdesign-icons-omi/heart'
+import 'tdesign-icons-omi/more'
 
 @tag('card-footer-actions')
 export default class CardFootActions extends WeElement {

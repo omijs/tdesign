@@ -3,7 +3,7 @@ import { h, tag, WeElement } from 'omi'
 import '../index'
 import '../../space'
 import '../../button'
-import '../../icon/refresh'
+import 'tdesign-icons-omi/refresh'
 
 @tag('image-lazy-list')
 export default class ImageLazyList extends WeElement {

@@ -4,7 +4,7 @@ import style from './style'
 import { TdClassNamePrefix, parseTNode } from '../utils'
 import { StyledProps, TNode, TElement } from '../common'
 import useLengthLimit from './useLengthLimit'
-import '../icon/close-circle-filled'
+import 'tdesign-icons-omi/close-circle-filled'
 const InputClassNamePrefix = (name: string) => TdClassNamePrefix('input') + name
 
 export interface InputProps extends TdInputProps, StyledProps {

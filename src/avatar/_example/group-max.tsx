@@ -3,8 +3,8 @@ import { h, tag, WeElement } from 'omi'
 import '../index'
 import '../../space'
 import '../avatar-group'
-import '../../icon/user'
-import '../../icon/ellipsis'
+import 'tdesign-icons-omi/user'
+import 'tdesign-icons-omi/ellipsis'
 
 @tag('avatar-group-max')
 export default class AvatarGroupMax extends WeElement {

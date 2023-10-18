@@ -3,8 +3,8 @@ import { h, tag, WeElement } from 'omi'
 import '../index'
 import '../../space'
 import '../../button'
-import '../../icon/refresh'
-import '../../icon/image-error'
+import 'tdesign-icons-omi/refresh'
+import 'tdesign-icons-omi/image-error'
 
 @tag('image-placeholder')
 export default class ImagePlaceholder extends WeElement {

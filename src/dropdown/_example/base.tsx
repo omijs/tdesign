@@ -1,5 +1,5 @@
 import { h, tag, WeElement } from 'omi'
-import '../../icon/chevron-down'
+import 'tdesign-icons-omi/chevron-down'
 import '../index'
 import '../../button'
 

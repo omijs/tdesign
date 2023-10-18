@@ -4,8 +4,8 @@ import { TdImageProps } from './type'
 import { StyledProps } from '../common'
 import { TdClassNamePrefix } from '../utils'
 import observe from '../_common/js/utils/observe'
-import '../icon/image-error'
-import '../icon/image-1'
+import 'tdesign-icons-omi/image-error'
+import 'tdesign-icons-omi/image-1'
 import '../space'
 export interface ImageProps extends TdImageProps, StyledProps {}
 

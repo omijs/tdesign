@@ -9,8 +9,8 @@ import useTagList from './useTagList'
 import '../input'
 import '../tag'
 import TInput, { InputValue, InputRef } from '../input'
-import '../icon/close'
-import '../icon/close-circle-filled'
+import 'tdesign-icons-omi/close'
+import 'tdesign-icons-omi/close-circle-filled'
 
 const TagInputClassNamePrefix = (className: string) => TdClassNamePrefix('tag-input') + className
 

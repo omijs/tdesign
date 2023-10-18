@@ -1,18 +1,18 @@
 import { WeElement, define, h, createRef } from 'omi'
 import '../common/index'
 
-import '../../../../../src/icon/star-filled'
-import '../../../../../src/icon/activity'
-import '../../../../../src/icon/add-and-subtract'
-import '../../../../../src/icon/add-circle'
-import '../../../../../src/icon/add-rectangle'
-import '../../../../../src/icon/add'
-import '../../../../../src/icon/address-book'
+import 'tdesign-icons-omi/star-filled'
+import 'tdesign-icons-omi/activity'
+import 'tdesign-icons-omi/add-and-subtract'
+import 'tdesign-icons-omi/add-circle'
+import 'tdesign-icons-omi/add-rectangle'
+import 'tdesign-icons-omi/add'
+import 'tdesign-icons-omi/address-book'
 import '../../../../../src/space/index'
 import * as marked from 'marked'
 import '../../../../code-box/index.tsx'
-import '../../../../../src/icon/_example/icons'
-import '../../../../../src/icon/bookmark'
+import 'tdesign-icons-omi/_example/icons'
+import 'tdesign-icons-omi/bookmark'
 
 import { tw } from 'omi-twind'
 const docsHTML = marked.parse(`
@@ -79,18 +79,18 @@ define(
             <code-box
               title="按需引入图标"
               describe={`可以通过
-              import '../../../../../src/icon/bookmark'
+              import 'tdesign-icons-omi/bookmark'
               的方式按需引入图标`}
               code={`
 \`\`\`html
-import '../../../../../src/icon/bookmark'
-import '../../../../../src/icon/star-filled'
-import '../../../../../src/icon/activity'
-import '../../../../../src/icon/add-and-subtract'
-import '../../../../../src/icon/add-circle'
-import '../../../../../src/icon/add-rectangle'
-import '../../../../../src/icon/add'
-import '../../../../../src/icon/address-book'
+import 'tdesign-icons-omi/bookmark'
+import 'tdesign-icons-omi/star-filled'
+import 'tdesign-icons-omi/activity'
+import 'tdesign-icons-omi/add-and-subtract'
+import 'tdesign-icons-omi/add-circle'
+import 'tdesign-icons-omi/add-rectangle'
+import 'tdesign-icons-omi/add'
+import 'tdesign-icons-omi/address-book'
 
 <div>
     <t-space>
@@ -126,7 +126,7 @@ import '../../../../../src/icon/address-book'
               style={{color: "red"}} 或者 style={{fill: "red"}}`}
               code={`
 \`\`\`html
-import { t-icon-star-filled } from '../../../../../src/icon/index'
+import { t-icon-star-filled } from 'tdesign-icons-omi/index'
 <div>
     <t-space direction="vertical">
         <h4>Size: small | medium | large | 1.5em | 2em | 40px</h4>
@@ -176,7 +176,7 @@ import { t-icon-star-filled } from '../../../../../src/icon/index'
             <h4 id="全局引入图标">
               全局引入图标 <a class="header-anchor" href="#全局引入图标"></a>
             </h4>
-            <p>可以通过 import '../../../../../src/icon' 的方式全局引入图标，直接调用需要的Icon组件</p>
+            <p>可以通过 import 'tdesign-icons-omi' 的方式全局引入图标，直接调用需要的Icon组件</p>
             <h3 id="图标总览">
               图标总览 <a class="header-anchor" href="#图标总览"></a>
             </h3>

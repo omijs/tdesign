@@ -2,11 +2,11 @@ import { h, tag, WeElement } from 'omi'
 
 import '../index'
 import '../../space'
-import '../../icon/add'
-import '../../icon/search'
-import '../../icon/cloud-upload'
-import '../../icon/discount'
-import '../../icon/cloud-download'
+import 'tdesign-icons-omi/add'
+import 'tdesign-icons-omi/search'
+import 'tdesign-icons-omi/cloud-upload'
+import 'tdesign-icons-omi/discount'
+import 'tdesign-icons-omi/cloud-download'
 
 @tag('button-icon')
 export default class ButtonIcon extends WeElement {

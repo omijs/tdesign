@@ -2,7 +2,7 @@ import { h, tag, WeElement } from 'omi'
 
 import '../index'
 import '../../space'
-import '../../icon/star-filled'
+import 'tdesign-icons-omi/star-filled'
 
 @tag('alert-icon')
 export default class AlertIcon extends WeElement {

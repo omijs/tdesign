@@ -5,12 +5,12 @@ import progressIconCss from './style/progress_icon.less'
 import { OmiNode, StyledProps } from '../common'
 import { getBackgroundColor } from '../utils'
 
-import '../icon/check'
-import '../icon/close'
-import '../icon/error'
-import '../icon/check-circle-filled'
-import '../icon/close-circle-filled'
-import '../icon/error-circle-filled'
+import 'tdesign-icons-omi/check'
+import 'tdesign-icons-omi/close'
+import 'tdesign-icons-omi/error'
+import 'tdesign-icons-omi/check-circle-filled'
+import 'tdesign-icons-omi/close-circle-filled'
+import 'tdesign-icons-omi/error-circle-filled'
 import { TdClassNamePrefix } from '../utils'
 
 export interface ProgressProps extends TdProgressProps, StyledProps {}

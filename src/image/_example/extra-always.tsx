@@ -3,7 +3,7 @@ import { h, tag, WeElement } from 'omi'
 import '../index'
 import '../../space'
 import '../../tag'
-import '../../icon/print'
+import 'tdesign-icons-omi/print'
 
 @tag('image-extra-always')
 export default class ImageExtraAlways extends WeElement {

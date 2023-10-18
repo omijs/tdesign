@@ -1,8 +1,8 @@
 import { h, tag, WeElement } from 'omi'
 
 import '../index'
-import '../../icon/thumb-up'
-import '../../icon/chat'
+import 'tdesign-icons-omi/thumb-up'
+import 'tdesign-icons-omi/chat'
 
 @tag('comment-operation')
 export default class OperationComment extends WeElement {

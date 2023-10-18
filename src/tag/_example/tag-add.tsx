@@ -3,8 +3,8 @@ import { h, tag, WeElement } from 'omi'
 import '../index'
 import '../../space'
 import '../../input'
-import '../../icon/discount'
-import '../../icon/add'
+import 'tdesign-icons-omi/discount'
+import 'tdesign-icons-omi/add'
 
 @tag('tag-add')
 export default class TagAdd extends WeElement {

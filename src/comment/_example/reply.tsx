@@ -1,9 +1,9 @@
 import { h, tag, WeElement } from 'omi'
 
 import '../index'
-import '../../icon/thumb-up'
-import '../../icon/chat'
-import '../../icon/arrow-right'
+import 'tdesign-icons-omi/thumb-up'
+import 'tdesign-icons-omi/chat'
+import 'tdesign-icons-omi/arrow-right'
 const classStyles = `
 <style>
 .comment-reply > .t-comment__inner > .t-comment__content > .t-comment__actions {

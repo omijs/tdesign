@@ -1,5 +1,5 @@
 import { h, tag, WeElement } from 'omi'
-import '../../icon/ellipsis'
+import 'tdesign-icons-omi/ellipsis'
 import '../index'
 import '../../button'
 

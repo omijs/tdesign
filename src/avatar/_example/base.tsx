@@ -2,7 +2,7 @@ import { h, tag, WeElement } from 'omi'
 
 import '../index'
 import '../../space'
-import '../../icon/user'
+import 'tdesign-icons-omi/user'
 
 @tag('avatar-base')
 export default class AvatarBase extends WeElement {

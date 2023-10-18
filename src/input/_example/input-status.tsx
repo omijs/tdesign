@@ -1,8 +1,8 @@
 import { OmiProps, WeElement, h, tag, render } from 'omi'
 import '../index'
 import '../../space'
-import '../../icon/lock-on'
-import '../../icon/browse-off'
+import 'tdesign-icons-omi/lock-on'
+import 'tdesign-icons-omi/browse-off'
 
 @tag('input-status')
 export default class InputStatus extends WeElement {

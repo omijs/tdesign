@@ -2,7 +2,7 @@ import { h, tag, WeElement } from 'omi'
 
 import '../index'
 import '../../space'
-import '../../icon/calendar'
+import 'tdesign-icons-omi/calendar'
 
 @tag('button-shape')
 export default class ButtonShape extends WeElement {

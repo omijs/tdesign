@@ -1,7 +1,7 @@
 import { h, tag, WeElement } from 'omi'
 
 import '../index'
-import '../../icon/jump'
+import 'tdesign-icons-omi/jump'
 @tag('link-size')
 export default class LinkSize extends WeElement {
   static css = `t-link {

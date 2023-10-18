@@ -1,6 +1,6 @@
 import { h, tag, WeElement, OmiProps, define, classNames, createRef, cloneElement } from 'omi'
 import { TdRateProps } from './type'
-import '../icon/star-filled'
+import 'tdesign-icons-omi/star-filled'
 import css from './style/index'
 import { isObject } from 'lodash'
 import { StyledProps } from '../common'

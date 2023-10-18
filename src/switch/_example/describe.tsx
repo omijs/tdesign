@@ -2,8 +2,8 @@ import { h, tag, WeElement } from 'omi'
 
 import '../index'
 import '../../space/index'
-import '../../icon/close'
-import '../../icon/check'
+import 'tdesign-icons-omi/close'
+import 'tdesign-icons-omi/check'
 
 @tag('switch-describe')
 export default class SwitchDescribe extends WeElement {

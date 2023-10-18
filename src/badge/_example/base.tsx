@@ -1,7 +1,7 @@
 import { WeElement, tag } from "omi"
 import '../index'
 import '../../button'
-import '../../icon/user'
+import 'tdesign-icons-omi/user'
 
 @tag('badge-base')
 export default class BadgeBase extends WeElement {

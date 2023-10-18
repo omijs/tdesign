@@ -4,7 +4,7 @@ import '../index'
 import '../../button'
 import '../../dropdown'
 import '../../comment'
-import '../../icon/more'
+import 'tdesign-icons-omi/more'
 
 @tag('card-footer-content-actions')
 export default class CartFooterContentActions extends WeElement {

@@ -4,7 +4,7 @@ import '../index'
 import '../../space'
 import '../../button'
 import '../../loading'
-import '../../icon/refresh'
+import 'tdesign-icons-omi/refresh'
 
 @tag('image-lazy-single')
 export default class ImageLazySingle extends WeElement {

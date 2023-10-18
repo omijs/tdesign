@@ -1,8 +1,8 @@
 import { h, tag, WeElement } from 'omi'
 
 import '../index'
-import '../../icon/jump'
-import '../../icon/link'
+import 'tdesign-icons-omi/jump'
+import 'tdesign-icons-omi/link'
 
 @tag('link-icon')
 export default class LinkIcon extends WeElement {
