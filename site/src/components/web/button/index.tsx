@@ -1,4 +1,4 @@
-import { define, OmiProps, h, render, createRef, WeElement } from 'omi'
+import { define, OmiProps, h, render, createRef, WeElement, signal } from 'omi'
 import './base-checkbox'
 import './color-checkbox'
 import './variant-checkbox'
@@ -43,18 +43,21 @@ onClick | Function |  | TS 类型：\`(e: MouseEvent) => void\`<br/>点击事件
 interface Props {
   tab: string
 }
+
+export const buttonState = signal({
+  block: false,
+  loading: false,
+  disabled: false,
+  ghost: false,
+  theme: 'primary',
+  variant: 'base',
+  size: 'medium',
+  shape: 'rectangle',
+})
+
 define(
   'page-button',
   class extends WeElement<Props> {
-    block: boolean = false
-    loading: boolean = false
-    disabled: boolean = false
-    ghost: boolean = false
-    theme 
-    variant = 'base'
-    size: string
-    shape = 'rectangle'
-
     static defaultProps = {
       tab: 'demo',
     }
@@ -92,24 +95,24 @@ define(
             <div style="display:flex;">
               <div style="width:500px;margin:auto; padding:30px;text-align:center;">
                 <t-button
-                  block={this.block}
-                  loading={this.loading}
-                  disabled={this.disabled}
-                  ghost={this.ghost}
-                  theme={this.theme}
-                  variant={this.variant}
-                  size={this.size}
-                  shape={this.shape}
+                  block={buttonState.value.block}
+                  loading={buttonState.value.loading}
+                  disabled={buttonState.value.disabled}
+                  ghost={buttonState.value.ghost}
+                  theme={buttonState.value.theme}
+                  variant={buttonState.value.variant}
+                  size={buttonState.value.size}
+                  shape={buttonState.value.shape}
                 >
                   Button
                 </t-button>
               </div>
               <div>
-                <t-button-base rootEl={this}></t-button-base>
-                <t-button-color rootEl={this}></t-button-color>
-                <t-button-variant rootEl={this}></t-button-variant>
-                <t-button-size rootEl={this}></t-button-size>
-                <t-button-shape rootEl={this}></t-button-shape>
+                <t-button-base></t-button-base>
+                <t-button-color></t-button-color>
+                <t-button-variant></t-button-variant>
+                <t-button-size></t-button-size>
+                <t-button-shape></t-button-shape>
               </div>
             </div>
             <h3 id="基础按钮">
