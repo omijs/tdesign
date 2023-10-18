@@ -5,9 +5,12 @@ import './gradient'
 import css from './style/index'
 import { StyledProps } from '../common'
 export interface LoadingProps extends TdLoadingProps, StyledProps {}
+
 @tag('t-loading')
 export default class Loading extends WeElement<LoadingProps> {
-  static css = css as string
+  static css = [css as string, `:host {
+  display: inline-flex;
+}`]
 
   static defaultProps = {
     delay: 0,
@@ -105,7 +108,7 @@ export default class Loading extends WeElement<LoadingProps> {
 
   commonContent = () => {
     const { indicator, text } = this.props
-    let renderIndicator = <t-loading-gradient />
+    let renderIndicator = <t-loading-gradient style={{display: 'inline-flex'}} />
 
     if (indicator && typeof indicator !== 'boolean') {
       renderIndicator = indicator as any
