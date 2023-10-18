@@ -1,4 +1,5 @@
 import { OmiProps, WeElement, h, tag } from 'omi'
+import { buttonState } from './index'
 
 @tag('t-button-variant')
 export default class BaseCheckBox extends WeElement {
@@ -7,46 +8,33 @@ export default class BaseCheckBox extends WeElement {
     return (
       <>
         <h2>按钮风格</h2>
-
         <label>
-          <input name='variant' type="radio" onChange={(e) => {
-            const target = e.target as HTMLInputElement;
-            if (target.checked) {
-              props.rootEl.variant = 'base'
-            }
-            props.rootEl.update()
+          <input name='variant' type="radio" onChange={() => {
+            buttonState.value.variant = 'base'
+            buttonState.update()
           }} /> 基本按钮
         </label>
 
         <label>
           <input name='variant' type="radio" onChange={(e) => {
-            const target = e.target as HTMLInputElement;
-            if (target.checked) {
-              props.rootEl.variant = 'outline'
-            }
-            props.rootEl.update()
+            buttonState.value.variant = 'outline'
+            buttonState.update()
           }} /> 填充按钮
 
         </label>
 
         <label>
           <input name='variant' type="radio" onChange={(e) => {
-            const target = e.target as HTMLInputElement;
-            if (target.checked) {
-              props.rootEl.variant = 'dashed'
-            }
-            props.rootEl.update()
+            buttonState.value.variant = 'dashed'
+            buttonState.update()
           }} /> 虚线按钮
 
         </label>
 
         <label>
           <input name='variant' type="radio" onChange={(e) => {
-            const target = e.target as HTMLInputElement;
-            if (target.checked) {
-              props.rootEl.variant = 'text'
-            }
-            props.rootEl.update()
+            buttonState.value.variant = 'text'
+            buttonState.update()
           }} /> 文本按钮
 
         </label>

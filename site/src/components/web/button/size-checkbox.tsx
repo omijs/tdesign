@@ -1,4 +1,5 @@
 import { OmiProps, WeElement, h, tag } from 'omi'
+import { buttonState } from './index'
 
 @tag('t-button-size')
 export default class BaseCheckBox extends WeElement {
@@ -7,34 +8,24 @@ export default class BaseCheckBox extends WeElement {
     return (
       <>
         <h2>不同大小</h2>
-
         <label>
-          <input name='size' type="radio" onChange={(e) => {
-            const target = e.target as HTMLInputElement;
-            if (target.checked) {
-              props.rootEl.size = 'small'
-            }
-            props.rootEl.update()
+          <input name='size' type="radio" onChange={() => {
+            buttonState.value.size = 'small'
+            buttonState.update()
           }} /> 小按钮
         </label>
 
         <label>
-          <input name='size' type="radio" onChange={(e) => {
-            const target = e.target as HTMLInputElement;
-            if (target.checked) {
-              props.rootEl.size = 'medium'
-            }
-            props.rootEl.update()
+          <input name='size' type="radio" onChange={() => {
+            buttonState.value.size = 'medium'
+            buttonState.update()
           }} /> 中按钮
         </label>
 
         <label>
-          <input name='size' type="radio" onChange={(e) => {
-            const target = e.target as HTMLInputElement;
-            if (target.checked) {
-              props.rootEl.size = 'large'
-            }
-            props.rootEl.update()
+          <input name='size' type="radio" onChange={() => {
+            buttonState.value.size = 'large'
+            buttonState.update()
           }} /> 大按钮
         </label>
 

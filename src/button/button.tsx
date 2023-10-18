@@ -58,25 +58,6 @@ export default class Button extends WeElement<ButtonProps> {
     return theme
   }
 
-  generateSubCss = () => {
-    const { content, children } = this.props
-    let subCss = `
-      .t-icon {
-        position: relative;
-        z-index: 1;
-        display: inline-flex;
-      }
-
-      .t-icon {
-        font-size: var(--td-font-size-body-large);
-      }
-
-      .t-loading {
-        font-size: var(--td-font-size-body-large) !important;
-      }
-    `
-    return subCss
-  }
 
   handleClick = (e: MouseEvent) => {
     const { disabled, loading } = this.props
@@ -86,7 +67,7 @@ export default class Button extends WeElement<ButtonProps> {
     }
   }
   render(props: OmiProps<ButtonProps>) {
-    const { renderTag, renderTheme, generateSubCss } = this
+    const { renderTag, renderTheme } = this
     const {
       type,
       theme,
@@ -111,10 +92,7 @@ export default class Button extends WeElement<ButtonProps> {
     const tagName = renderTag()
     const tempChildren = children as any
     const renderChildren = content ?? tempChildren.length > 0 ? children : null
-    if (icon) {
-      icon.attributes['css'] = generateSubCss()
-    }
-
+ 
     return h(
       tagName,
       {
@@ -143,7 +121,7 @@ export default class Button extends WeElement<ButtonProps> {
         onClick: this.handleClick,
       },
       <>
-        {loading ? <t-loading css={generateSubCss()} loading={loading} inheritColor={true}></t-loading> : icon}
+        {loading ? <t-loading size='small' loading={loading} inheritColor={true}></t-loading> : icon}
         {renderChildren && (
           <span className="t-button__text" style={(loading || icon) && { marginLeft: '8px' }}>
             {renderChildren}
