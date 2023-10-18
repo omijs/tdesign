@@ -7,7 +7,7 @@ import { resolveConfig, basePlugin } from '../script/vite.base.config';
 const publicPathMap = {
   preview: '/',
   intranet: '/omi/',
-  production: 'https://static.tdesign.tencent.com/omi/',
+  production: './',
 };
 
 export default ({ mode }) => {
