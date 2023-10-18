@@ -50,10 +50,10 @@ define(
     loading: boolean = false
     disabled: boolean = false
     ghost: boolean = false
-    theme
-    variant
+    theme 
+    variant = 'base'
     size: string
-    shape
+    shape = 'rectangle'
 
     static defaultProps = {
       tab: 'demo',
@@ -90,7 +90,7 @@ define(
           <td-doc-tabs ref={this.tdDocTabs} tab={this.props.tab} style="display:block"></td-doc-tabs>
           <div style={this.isShow('demo')} name="DEMO">
             <div style="display:flex;">
-              <div style="width:500px;margin:auto;text-align:center;">
+              <div style="width:500px;margin:auto; padding:30px;text-align:center;">
                 <t-button
                   block={this.block}
                   loading={this.loading}
