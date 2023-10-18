@@ -26,12 +26,13 @@ export default ({ mode }) => {
     },
     build: {
       outDir: '../_site',
+      chunkSizeWarningLimit: 10000
     },
     esbuild: {
       jsxFactory: 'h',
       jsxFragment: 'h.f'
     },
-    plugins: [...basePlugin, tDocPlugin(), VitePWA(pwaConfig)],
+    plugins: [...basePlugin, tDocPlugin()], // VitePWA(pwaConfig)
     optimizeDeps: {
       include: ['prismjs', 'prismjs/components/prism-bash.js'],
     },
