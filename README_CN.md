@@ -16,13 +16,40 @@ TDesign 是一套完整的 [企业级设计体系](https://tdesign.tencent.com/d
 
 OMI 开发的 TDesign Web 组件
 
-
-- [x] Button
-- [] Loading
-- [] Avatar
-- [] Badge
-
-
+- [ ] alert
+- [ ] avatar
+- [ ] back-top
+- [ ] badge
+- [x] button
+- [ ] card
+- [ ] checkbox
+- [ ] comment
+- [ ] divider
+- [ ] drawer
+- [ ] dropdown
+- [ ] grid
+- [ ] image
+- [ ] input-adornment
+- [ ] input-number
+- [ ] input
+- [ ] link
+- [ ] list
+- [ ] loading
+- [ ] message
+- [ ] notification
+- [ ] popup
+- [ ] progress
+- [ ] radio
+- [ ] rate
+- [ ] skeleton
+- [ ] slider
+- [ ] space
+- [ ] switch
+- [ ] tag-input
+- [ ] tag
+- [ ] textarea
+- [ ] timeline
+- [ ] tooltip
 
 
 ## License

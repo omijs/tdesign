@@ -16,10 +16,40 @@ TDesign is a comprehensive [Enterprise Design System](https://tdesign.tencent.co
 
 TDesign Web Components by OMI
 
-- [x] Button
-- [] Loading
-- [] Avatar
-- [] Badge
+- [ ] alert
+- [ ] avatar
+- [ ] back-top
+- [ ] badge
+- [x] button
+- [ ] card
+- [ ] checkbox
+- [ ] comment
+- [ ] divider
+- [ ] drawer
+- [ ] dropdown
+- [ ] grid
+- [ ] image
+- [ ] input-adornment
+- [ ] input-number
+- [ ] input
+- [ ] link
+- [ ] list
+- [ ] loading
+- [ ] message
+- [ ] notification
+- [ ] popup
+- [ ] progress
+- [ ] radio
+- [ ] rate
+- [ ] skeleton
+- [ ] slider
+- [ ] space
+- [ ] switch
+- [ ] tag-input
+- [ ] tag
+- [ ] textarea
+- [ ] timeline
+- [ ] tooltip
 
 
 ## License
