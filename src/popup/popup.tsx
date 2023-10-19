@@ -54,7 +54,7 @@ export default class Popup extends WeElement<
 
   static propTypes = {
     attach: Object,
-    content: Object,
+    content: [String, Object],
     delay: [Number, Array],
     destroyOnClose: Boolean,
     disabled: Boolean,

@@ -529,14 +529,14 @@ export const docs = [
         //       component: () => import('tdesign-omi/timeline/timeline.md'),
         //       componentEn: () => import('tdesign-omi/timeline/timeline.en-US.md'),
       },
-      //     {
-      //       title: 'Tooltip 文字提示',
-      //       titleEn: 'Tooltip',
-      //       name: 'tooltip',
-      //       path: '/tooltip',
-      //       component: () => import('tdesign-omi/tooltip/tooltip.md'),
-      //       componentEn: () => import('tdesign-omi/tooltip/tooltip.en-US.md'),
-      //     },
+      {
+        title: 'Tooltip 文字提示',
+        titleEn: 'Tooltip',
+        name: 'tooltip',
+        path: '/tooltip',
+        //       component: () => import('tdesign-omi/tooltip/tooltip.md'),
+        //       componentEn: () => import('tdesign-omi/tooltip/tooltip.en-US.md'),
+      },
       //     {
       //       title: 'Tree 树',
       //       titleEn: 'Tree',

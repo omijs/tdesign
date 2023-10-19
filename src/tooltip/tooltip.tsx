@@ -20,7 +20,7 @@ export default class Tooltip extends WeElement<TooltipProps> {
     theme: String,
     //popup props
     attach: Object,
-    content: Object,
+    content: [String, Object],
     disabled: Boolean,
     hideEmptyPopup: Boolean,
     overlayClassName: [String, Array],
@@ -107,12 +107,12 @@ export default class Tooltip extends WeElement<TooltipProps> {
         ref={this.popupRef}
         // visible={popupVisible}
         destroyOnClose={destroyOnClose}
-        showArrow={showArrow}
+        showArrow={placement === 'mouse' ? false : showArrow}
         overlayClassName={toolTipClass}
         onVisibleChange={(visible: boolean, context: PopupVisibleChangeContext) => {
           handleVisibleChange.bind(this)(visible, context)
         }}
-        placement={placement}
+        placement={placement === 'mouse' ? 'bottom-left' : placement}
         {...restProps}
       >
         {children}

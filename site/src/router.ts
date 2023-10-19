@@ -39,6 +39,7 @@ const components = [
   'badge',
   'skeleton',
   'timeline',
+  'tooltip',
 ]
 
 export function registerRouting(rootEl: any) {

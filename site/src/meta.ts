@@ -165,6 +165,7 @@ const metaData = new Map([
   ['switch', { title: 'Switch 开关', description: '用于两个互斥选项，用来打开或关闭选项的选择控件。' }],
   ['progress', { title: 'Progress 进度条', description: '展示操作的当前进度。' }],
   ['timeline', { title: 'Timeline 时间轴', description: '用于时间轴展示。' }],
+  ['tooltip', { title: 'Tooltip 文字提示', description: '用于文字提示的气泡框。' }],
 ])
 
 const getMetaData = (componentName: string) => {

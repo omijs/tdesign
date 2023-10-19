@@ -110,6 +110,7 @@ export type PopupPlacement =
   | 'left-bottom'
   | 'right-top'
   | 'right-bottom'
+  | 'mouse'
 
 export interface PopupVisibleChangeContext {
   e?: PopupTriggerEvent
