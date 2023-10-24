@@ -5,6 +5,8 @@ import './variant-checkbox'
 import './size-checkbox'
 import './shape-checkbox'
 import '../common/index'
+import buttonMd from '../../../../../src/button/button.md'
+import './button_md'
 import '../../../../../src/button'
 import '../../../../../src/button/_example/base'
 import '../../../../../src/button/_example/block'
@@ -16,6 +18,14 @@ import '../../../../../src/button/_example/size'
 import '../../../../../src/button/_example/status'
 import '../../../../../src/button/_example/theme'
 import * as marked from 'marked'
+// import tdesign style
+import css from '@common/style/web/docs.less'
+
+// import site web components
+import 'tdesign-site-components'
+import css1 from 'tdesign-site-components/lib/styles/style.css'
+import css2 from 'tdesign-site-components/lib/styles/prism-theme.less'
+import css3 from 'tdesign-site-components/lib/styles/prism-theme-dark.less'
 
 const docsHTML = marked.parse(`
 :: BASE_DOC ::
@@ -58,6 +68,7 @@ export const buttonState = signal({
 define(
   'page-button',
   class extends WeElement<Props> {
+    static css = css + css1 + css2 + css3
     static defaultProps = {
       tab: 'demo',
     }
@@ -89,7 +100,7 @@ define(
 
     render(props: {} | OmiProps<{}, any>, store: any) {
       return (
-        <>
+        <div>
           <td-doc-tabs ref={this.tdDocTabs} tab={this.props.tab} style="display:block"></td-doc-tabs>
           <div style={this.isShow('demo')} name="DEMO">
             <div style="display:flex;">
@@ -200,15 +211,18 @@ define(
             </demo-wrapper>
           </div>
           <div style={this.isShow('api')} name="API">
-            <div
+            <button-md></button-md>
+            {/* {buttonMd} */}
+            {/* <div
+              name="API"
               style="margin-bottom:76px"
               unsafeHTML={{
-                html: docsHTML,
+                html: buttonMd,
               }}
-            ></div>
+            ></div> */}
           </div>
           <div style={this.isShow('design')} name="DESIGN"></div>
-        </>
+        </div>
       )
     }
   },

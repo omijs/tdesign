@@ -82,6 +82,7 @@
   "author": "tdesign",
   "license": "MIT",
   "dependencies": {
+    "@babel/plugin-proposal-decorators": "^7.23.2",
     "@babel/plugin-syntax-jsx": "^7.22.5",
     "@babel/preset-react": "^7.22.15",
     "@babel/preset-typescript": "^7.23.0",
@@ -150,7 +151,7 @@
     "omi-twind": "^0.0.4",
     "prismjs": "^1.24.0",
     "sortablejs": "^1.15.0",
-    "tdesign-icons-omi": "^0.0.10",
+    "tdesign-icons-omi": "^0.0.12",
     "tinycolor2": "^1.6.0",
     "twind": "^0.16.16",
     "validator": "^13.9.0"

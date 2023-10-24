@@ -1,14 +1,15 @@
-import { defineConfig } from 'vite';
-import { VitePWA } from 'vite-plugin-pwa';
-import tDocPlugin from './plugin-doc';
-import pwaConfig from './pwaConfig';
-import { resolveConfig, basePlugin } from '../script/vite.base.config';
+import { defineConfig } from 'vite'
+import { VitePWA } from 'vite-plugin-pwa'
+import tDocPlugin from './plugin-doc'
+import apiTDocPlugin from './plugin-api-doc'
+import pwaConfig from './pwaConfig'
+import { resolveConfig, basePlugin } from '../script/vite.base.config'
 
 const publicPathMap = {
   preview: '/',
   intranet: '/omi/',
   production: './',
-};
+}
 
 export default ({ mode }) => {
   return defineConfig({
@@ -26,15 +27,15 @@ export default ({ mode }) => {
     },
     build: {
       outDir: '../tdesign',
-      chunkSizeWarningLimit: 10000
+      chunkSizeWarningLimit: 10000,
     },
     esbuild: {
       jsxFactory: 'h',
-      jsxFragment: 'h.f'
+      jsxFragment: 'h.f',
     },
-    plugins: [...basePlugin, tDocPlugin()], // VitePWA(pwaConfig)
+    plugins: [...basePlugin, apiTDocPlugin()], // VitePWA(pwaConfig)
     optimizeDeps: {
       include: ['prismjs', 'prismjs/components/prism-bash.js'],
     },
-  });
-};
+  })
+}
