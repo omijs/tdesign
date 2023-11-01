@@ -100,7 +100,7 @@
     "@omiu/checkbox": "^0.0.15",
     "@omiu/collapse": "^0.0.1",
     "@omiu/color-picker": "^0.0.6",
-    "@omiu/common": "^0.0.15",
+    "@omiu/common": "^0.0.17",
     "@omiu/date-picker": "^0.0.10",
     "@omiu/dialog": "^0.0.5",
     "@omiu/dialog-extention": "^0.0.8",
