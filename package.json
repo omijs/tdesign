@@ -197,7 +197,7 @@
     "eslint-plugin-prettier": "^4.2.1",
     "glob": "^10.3.10",
     "gray-matter": "^4.0.3",
-    "husky": "^7.0.4",
+    "husky": "^8.0.3",
     "ignore": "^5.2.4",
     "jsdom": "^19.0.0",
     "less": "^4.1.3",
