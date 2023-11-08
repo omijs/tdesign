@@ -166,6 +166,8 @@ const metaData = new Map([
   ['progress', { title: 'Progress 进度条', description: '展示操作的当前进度。' }],
   ['timeline', { title: 'Timeline 时间轴', description: '用于时间轴展示。' }],
   ['tooltip', { title: 'Tooltip 文字提示', description: '用于文字提示的气泡框。' }],
+  ['badge', { title: 'Badge 徽标', description: '出现在图标或文字右上角的徽标标识。' }],
+  ['skeleton', { title: 'Skeleton 骨架屏', description: '当网络较慢时，在页面真实数据加载之前，给用户展示出页面的大致结构。' }],
 ])
 
 const getMetaData = (componentName: string) => {
